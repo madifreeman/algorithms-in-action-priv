@@ -102,7 +102,7 @@ class Array2DRenderer extends Renderer {
                   <motion.td layout 
                   whileHover={{ scale: 1.2 }}
                   className={classes(styles.col, col.selected && styles.selected, col.patched && styles.patched, col.sorted && styles.sorted, col.variables && styles[col.variables.colour])}
-                      key={j}>
+                      key={col.key}>
                     <span className={styles.value}>{this.toString(col.value)}</span>
                   </motion.td>
                 ))
@@ -115,10 +115,10 @@ class Array2DRenderer extends Renderer {
             <tr className={styles.row} key={i}>
               { isArray1D && 
                 row.map((col, j) => (
-                  <td className={classes(styles.col, styles.variable, col.variables && styles[col.variables.colour])}
-                      key={j}>
+                  <motion.td layout className={classes(styles.col, styles.variable, col.variables && styles[col.variables.colour])}
+                      key={col.key}>
                     <span className={styles.value}>{col.variables.value}</span>
-                  </td>
+                  </motion.td>
                 ))
               }
             </tr>
